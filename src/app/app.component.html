@@ -1,0 +1,96 @@
+<div class="container">
+    <h1 class="container__title">Reactive forms</h1>
+    <div class="container__list">
+        <div class="container__item">
+            <h2 class="container__subtitle">Simple form</h2>
+            <form class="form" (ngSubmit)="handlerSubmit()">
+                <label class="form__label">Name</label><br>
+                <input type="text" [formControl]="name" class="form__field" required><br>
+                <label class="form__label">Last name</label><br>
+                <input type="text" [formControl]="lastName" class="form__field" required><br>
+                <button class="form__button" type="submit" (click)="updateName()" [disabled]="!name.valid">Submit</button>
+            </form>
+        </div>
+        <div class="container__item">
+            <h2 class="container__subtitle">Form group</h2>
+            <form class="form" [formGroup]="profileForm" (ngSubmit)="handlerSubmitGroup()">
+                <label class="form__label">Name</label><br>
+                <input type="text" formControlName="firstName" class="form__field" required><br>
+            
+                <label class="form__label">Last name</label><br>
+                <input type="text" formControlName="lastName" class="form__field"><br>
+            
+                <button class="form__button" type="submit" [disabled]="!profileForm.valid">Submit</button>
+            
+            </form>
+
+            
+        </div>
+        <div class="container__item">
+            <h3 class="container__subtitle">Nested form group</h3>
+            <form class="form" [formGroup]="personalInfo" (ngSubmit)="handlerSubmitNestedGroup()">
+                <label class="form__label">Name</label><br>
+                <input type="text" formControlName="firstName" class="form__field" required><br>
+            
+                <label class="form__label">Last name</label><br>
+                <input type="text" formControlName="lastName" class="form__field"><br>
+            
+                <div formGroupName="address">
+                    <h4>Address</h4>
+                    <label class="form__label">Street</label><br>
+                    <input type="text" formControlName="street" class="form__field" required><br>
+            
+                    <label class="form__label">City</label><br>
+                    <input type="text" formControlName="city" class="form__field"><br>
+            
+                    <label class="form__label">State</label><br>
+                    <input type="text" formControlName="state" class="form__field" required><br>
+            
+                    <label class="form__label">Zip code</label><br>
+                    <input type="text" formControlName="zip" class="form__field"><br>
+                </div>
+            
+                <button class="form__button" type="submit" [disabled]="!personalInfo.valid"
+                (click)="updatePersonalInfo()">Submit</button>
+            
+            </form>
+        </div>
+        <div class="container__item">
+            <h3 class="container__subtitle">Form Builder</h3>
+            <form class="form" [formGroup]="personalInfoBuilder" (ngSubmit)="handlerSubmitNestedGroup()">
+                <label class="form__label">Name</label><br>
+                <input type="text" formControlName="firstName" class="form__field" required><br>
+            
+                <label class="form__label">Last name</label><br>
+                <input type="text" formControlName="lastName" class="form__field"><br>
+            
+                <div formGroupName="address">
+                    <h4>Address</h4>
+                    <label class="form__label">Street</label><br>
+                    <input type="text" formControlName="street" class="form__field" required><br>
+            
+                    <label class="form__label">City</label><br>
+                    <input type="text" formControlName="city" class="form__field"><br>
+            
+                    <label class="form__label">State</label><br>
+                    <input type="text" formControlName="state" class="form__field" required><br>
+            
+                    <label class="form__label">Zip code</label><br>
+                    <input type="text" formControlName="zip" class="form__field"><br>
+                </div>
+            
+                <button class="form__button" type="submit" [disabled]="!personalInfoBuilder.valid"
+                    (click)="updatePersonalInfoBuilder()">Submit</button>
+            </form>
+        </div>
+        <div class="container__item">
+            <h3 class="container__subtitle">Form Array</h3>
+                <div [formGroup]="aliases" *ngFor="let address of aliases.controls; let i=index">
+                    <label class="form__label">New input</label><br>
+                    <input type="text" [formControlName]="i" class="form__field">
+                </div>
+            <button class="form__button" type="submit" (click)="addAlias()">Add</button>
+        </div>
+    </div>
+    <!-- <app-form-driven></app-form-driven> -->
+</div>
