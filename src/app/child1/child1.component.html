@@ -1,0 +1,15 @@
+<form class="form-profile" [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+    <h1 class="form-profile__title">Directives</h1>
+    <div class="form-profile__item">
+        <label class="form-profile__label" for="gender">Gender</label>
+        <select class="form-profile__field" id="gender" formControlName="gender">
+            <option>Female</option>
+            <option>Male</option>
+        </select>
+    </div>
+    <div class="form-profile__item">
+        <label class="form-profile__label" for="age">Age</label>
+        <input type="number" class="form-profile__field" id="age" formControlName="age">
+    </div>
+    <button type="submit" class="form-profile__button">Send</button>
+</form>
