@@ -13,12 +13,16 @@ export class Child1Component implements OnInit {
   ngOnInit() {
   }
 
+  test(){
+    console.log('test');
+  }
+
   profileForm = new FormGroup({
     gender: new FormControl(''),
     age: new FormControl(''),
   })
 
   onSubmit() {
-    console.log(this.profileForm.value)
+    // console.log(this.profileForm.value)
   }
 }
