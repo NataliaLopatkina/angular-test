@@ -1,40 +1,34 @@
-import { Directive, Input, TemplateRef, ViewContainerRef, SimpleChanges } from '@angular/core';
+import { Directive, Input, TemplateRef, ViewContainerRef } from '@angular/core';
 
 @Directive({
   selector: '[appMessage]',
 })
 export class MessageDirective {
   constructor(
-    private templateRef: TemplateRef<any>, // Для получения доступа к шаблону директивы применяется этот объект
-    private viewContainer: ViewContainerRef // Объект рендера
-    ) {}
+    private templateRef: TemplateRef<any>,
+    private viewContainer: ViewContainerRef) {}
 
-
-    ngOnChanges(changes: SimpleChanges) { console.log(changes);
-      
-    if(changes.appMessage.currentValue.gender =='Female'){
-      this.addHtml()
-    }
-    }
-
-    addHtml(){
-      console.log('жопа!!!')
-this.templateRef.elementRef.nativeElement.textContent = 'Жопа!!!!'
-
-    }
-
-
-
-  @Input() appMessage(condition) {
-    // console.log(condition);
-    if (condition == "age < 10 && gender=='Female'") {
-      this.viewContainer.createEmbeddedView(this.templateRef);
-    } else if (condition == "age < 10 && gender=='Male'") {
-      this.viewContainer.createEmbeddedView(this.templateRef);
-    } else if (condition == "age > 10 && gender=='Male'") {
-      this.viewContainer.createEmbeddedView(this.templateRef);
-    } else if (condition == "age > 10 && gender=='Female'") {
+    ngDoCheck() {
       this.viewContainer.clear();
+      if (this.appMessage.gender == 'Female' && this.appMessage.age > 20 && this.appMessage.age != 0) {
+          const text = 'woman';
+          this.addHTML(text);
+      } else if (this.appMessage.gender == 'Male' && this.appMessage.age > 20 && this.appMessage.age != 0) {
+          const text = 'man';
+          this.addHTML(text);
+      } else if (this.appMessage.gender == 'Male' && this.appMessage.age <= 20 && this.appMessage.age != 0) {
+          const text = 'boy';
+          this.addHTML(text);
+      } else if (this.appMessage.gender == 'Female' && this.appMessage.age <= 20 && this.appMessage.age != 0) {
+          const text = 'girl';
+          this.addHTML(text);
+      }  
     }
-  }
+
+    addHTML(text) {
+      this.viewContainer.createEmbeddedView(this.templateRef);
+      document.querySelector('.message').innerHTML = 'Hello, ' + text + '!';
+    }
+
+  @Input() appMessage;
 }

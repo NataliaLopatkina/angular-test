@@ -23,6 +23,6 @@ export class Child1Component implements OnInit {
   })
 
   onSubmit() {
-    // console.log(this.profileForm.value)
+    console.log(this.profileForm.value)
   }
 }
