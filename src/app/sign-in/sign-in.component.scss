@@ -1,0 +1,69 @@
+.sign-in {
+    color: #DB7093;
+    max-width: 500px;
+    padding-top: 50px;
+    margin: 0 auto;
+
+    &__item {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 30px;
+
+        &:first-child {
+            margin-bottom: 10px;
+        }
+    }
+
+    &__label {
+        font-size: 20px;
+        font-weight: 600;
+        margin-bottom: 10px;
+    }
+
+    &__field {
+        font-size: 14px;
+        color: #DB7093;
+        padding: 5px;
+        border: 2px solid #DB7093;
+        outline: none;
+
+        &.ng-touched.ng-invalid {
+            border: 2px solid red;
+        }
+
+        &.ng-valid {
+            border: 2px solid green;
+        }
+    }
+
+    &__button {
+        font-size: 20px;
+        color: #ffffff;
+        padding: 5px 20px;
+        background: #DB7093;
+        border: 2px solid #DB7093;
+        outline: none;
+        cursor: pointer;
+        transition-property: background, color;
+        transition-duration: 0.25s;
+        transition-timing-function: ease;
+
+        &:hover {
+            background: #ffffff;
+            color: #DB7093;
+        }
+
+        &:active {
+            opacity: 0.5;
+        }
+
+        &:disabled {
+            background: #f2f2f2;
+            border: 2px solid #f2f2f2;
+        }
+    }
+}
+
+.error {
+    color: red;
+}

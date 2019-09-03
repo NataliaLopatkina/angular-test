@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { Child1Component } from './child1/child1.component';
 import { Child2Component } from './child2/child2.component';
 import { MessageDirective } from '../directives/message/message.directive';
+import { SignInComponent } from './sign-in/sign-in.component';
 
 @NgModule({
   declarations: [
@@ -13,6 +14,7 @@ import { MessageDirective } from '../directives/message/message.directive';
     Child1Component,
     Child2Component,
     MessageDirective,
+    SignInComponent,
   ],
   imports: [
     BrowserModule,

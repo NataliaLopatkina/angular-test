@@ -1,0 +1,20 @@
+<div class="sign-in">
+    <form class="sign-in__form" [formGroup]=profileForm (ngSubmit)="onSubmit()">
+        <div class="sign-in__item">
+            <label for="login" class="sign-in__label">Login</label>
+            <input id="login" type="email" class="sign-in__field" formControlName="login" required>
+            <div *ngIf="profileForm.controls['login'].errors && !profileForm.controls['login'].pristine">
+                <span class="error" *ngIf="profileForm.controls['login'].errors.required">Login is required!</span>
+            </div>
+        </div>
+        <div class="sign-in__item">
+            <label for="name" class="sign-in__label">Password</label>
+            <input id="name" type="text" class="sign-in__field" formControlName="password" required>
+            <div *ngIf="profileForm.controls['password'].errors && !profileForm.controls['password'].pristine">
+                <span class="error" *ngIf="profileForm.controls['password'].errors.required">Password is required!</span>
+            </div>
+        </div>
+        <button class="sign-in__button" type="submit" [disabled]="!profileForm.valid">Send</button>
+    </form>
+</div>
+
