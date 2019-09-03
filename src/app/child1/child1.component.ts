@@ -13,10 +13,6 @@ export class Child1Component implements OnInit {
   ngOnInit() {
   }
 
-  test(){
-    console.log('test');
-  }
-
   profileForm = new FormGroup({
     gender: new FormControl(''),
     age: new FormControl(''),
