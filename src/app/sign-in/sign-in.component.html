@@ -5,13 +5,15 @@
             <input id="login" type="email" class="sign-in__field" formControlName="login" required>
             <div *ngIf="profileForm.controls['login'].errors && !profileForm.controls['login'].pristine">
                 <span class="error" *ngIf="profileForm.controls['login'].errors.required">Login is required!</span>
+                <span class="error" *ngIf="profileForm.controls['login'].errors.pattern">Login not valid</span>
             </div>
         </div>
         <div class="sign-in__item">
             <label for="name" class="sign-in__label">Password</label>
-            <input id="name" type="text" class="sign-in__field" formControlName="password" required>
+            <input id="name" type="password" class="sign-in__field" formControlName="password" required minlength="5">
             <div *ngIf="profileForm.controls['password'].errors && !profileForm.controls['password'].pristine">
                 <span class="error" *ngIf="profileForm.controls['password'].errors.required">Password is required!</span>
+                <span class="error" *ngIf="profileForm.controls['password'].errors.minlength">The value must be greater than or equal to 5</span>
             </div>
         </div>
         <button class="sign-in__button" type="submit" [disabled]="!profileForm.valid">Send</button>

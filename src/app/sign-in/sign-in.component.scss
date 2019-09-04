@@ -27,7 +27,7 @@
         border: 2px solid #DB7093;
         outline: none;
 
-        &.ng-touched.ng-invalid {
+        &.ng-dirty.ng-invalid {
             border: 2px solid red;
         }
 
