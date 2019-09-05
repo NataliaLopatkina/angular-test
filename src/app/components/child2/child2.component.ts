@@ -11,6 +11,7 @@ export class Child2Component implements OnInit {
 
 
   ngOnInit() {
+    console.log(this.form)
   }
 
   @Input() form;
