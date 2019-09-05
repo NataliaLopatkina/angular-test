@@ -9,8 +9,10 @@ import { MessageDirective } from '../directives/message/message.directive';
 import { SignInComponent } from './components/sign-in/sign-in.component';
 import { DataComponent } from './components/data/data.component';
 
-import { DataService } from './services/data.service';
-import { LogService } from './services/log.service';
+import { DataService } from './services/data/data.service';
+import { LogService } from './services/log/log.service';
+
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,8 @@ import { LogService } from './services/log.service';
   imports: [
     BrowserModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [DataService, LogService],
   bootstrap: [AppComponent]

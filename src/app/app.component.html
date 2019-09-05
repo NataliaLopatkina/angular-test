@@ -1,9 +1,18 @@
 <div class="container">
     <!-- <app-child1 #appChild></app-child1>
-    <app-child2 [form]="appChild.profileForm.value"></app-child2>
+    <app-child2 [form]="appChild.profileForm.value"></app-child2> -->
 
-    <app-data></app-data>
+    <!-- <app-data></app-data>
     <app-data></app-data> -->
+
+    <!-- <app-sign-in></app-sign-in> -->
+
+    <ul>
+        <li *ngFor="let user of users">
+            <p>Имя пользователя: {{user?.name}}</p>
+            <p>Возраст пользователя: {{user?.age}}</p>
+        </li>
+    </ul>
 </div>
 
-<!-- <app-sign-in></app-sign-in> -->
+
